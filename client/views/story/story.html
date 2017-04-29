@@ -1,0 +1,56 @@
+<template name="story">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{#if status}}
+                <h4> <a href="/profile/{{creatorUsername}}"><img src="{{userImage}}" width="28px;" height="28px;"> {{creatorName}} </a></h4>
+            {{else}}
+                <h4>
+                    <a href="/profile/{{creatorUsername}}">
+                        <img src="{{creatorThumbnail}}" alt="" width="28px;" height="28px;">
+                        {{creatorName}}
+                    </a>
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    <a href="/profile/{{createdForUsername}}">
+                        <img src="{{createdForThumbnail}}" alt="" width="28px;" height="28px;">
+                        {{createdForName}}
+                    </a>
+                </h4>
+            {{/if}}
+        </div>
+        <div class="panel-body">
+            <h4>
+                {{storyText}}</h4>
+            <div class="clearfix"></div>
+            <form>
+                <label>{{likeCount _id}}</label>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default like"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                    </div>
+                    <input class="form-control" placeholder="Add a comment.." name="{{ident}}comment" type="text">
+                    <button class="btn btn-default like" name="comentar">Comentar</button>
+                </div>
+             </form>
+            {{#if comentarios}}
+                <h3>Comentarios</h3>
+             {{#each comentarios}}
+                 <div class="panel panel-default">
+                    <div class="panel-heading">
+
+                            <h4> <a href="/profile/{{UserUsername}}"><img src="{{UserPicMed}}" width="28px;" height="28px;"> {{UserUsername}} </a></h4>
+                            <h6>{{createdAt}}</h6>
+
+
+
+                    </div>
+                    <div class="panel-body">
+                        <h5>{{Cuerpo}}</h5>
+                        <div class="clearfix"></div>
+
+                           </div>
+                    </div>
+             {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</template>

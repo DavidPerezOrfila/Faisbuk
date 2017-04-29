@@ -1,0 +1,51 @@
+
+<template name="profileDetails">
+    <!-- main col left -->
+    <div class="col-sm-5">
+
+         <div class="panel panel-default">
+           <div class="panel-thumbnail"><img src="{{profilePicture}}" class="img-responsive" ></div>
+           <div class="panel-body">
+             <p class="lead">{{fullname}}</p>
+             <p>{{friendCount}} Friends</p>
+
+             {{#if checkUser }}
+                <p><button class="btn btn-primary edit-profile"><a href="/profileEdit/{{currentUser.username}}">Edita tu perfil</a></button></p>
+             {{else }}
+                <p><button class="btn btn-primary add-friend">Add Friend</button></p>
+             {{/if}}
+
+             <p>
+                {{#each newFriends}}
+                    <a href="/profile/{{this.profile.username}}"><img src="{{this.profile.picture.thumbnail}}" height="28px" width="28px"></a>
+                {{/each}}
+             </p>
+           </div>
+         </div>
+
+
+         <div class="panel panel-default">
+           <div class="panel-heading"><h4>About</h4></div>
+             <div class="panel-body">
+                {{about}}
+             </div>
+         </div>
+
+
+
+         <div class="panel panel-default">
+           <div class="panel-heading"><h4>Usuarios:</h4></div>
+           <div class="panel-body">
+               {{#each usuarios}}
+                  <ul>
+                     <li>
+                       <a href="/profile/{{this.usuarios}}"><img src="{{profile.picture.thumbnail}}" height="40px" width="40px"/>{{profile.username}}</a></li>
+                  </ul>
+               {{/each}}
+            </div>
+         </div>
+
+
+
+     </div>
+</template>
