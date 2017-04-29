@@ -1,14 +1,44 @@
-<template name="UserProfileEdit">
-        {{#autoForm id="UserProfileEdit" collection="Meteor.users"  doc=currentUser type="update"}}
-                {{> afQuickField name="username"}}
-                {{> afQuickField name="profile.firstName"}}
-                {{> afQuickField name="profile.lastName"}}
-                {{> afQuickField name="profile.bio" rows="6"}}
-                {{> afQuickField name="profile.website"}}
-                {{#unless autoSaveMode}}
-                <div class="form-group">
-                        <button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Enviar</button>
+<template name="editProfile">
+    <div class="wrapper">
+        <div class="box">
+            <div class="row row-offcanvas row-offcanvas-left">
+                <!-- sidebar -->
+                {{>sidebar}}
+                <!-- /sidebar -->
+                <!-- main right col -->
+                <div class="column col-sm-10 col-xs-11" id="main">
+                    <!-- top nav -->
+                    {{>topnav}}
+                    <!-- /top nav -->
+                    <div class="padding">
+                        <div class="full col-sm-9">
+                            <!-- content -->
+                            <div class="row">
+                                {{>profileDetails}}
+                                <!-- main col right -->
+                                <div class="col-sm-7">
+                                    {{#autoForm id="editProfile" collection="Meteor.users"  doc=currentUser type="update"}}
+                                    {{> afQuickField name="username"}}
+                                    {{> afQuickField name="profile.firstname"}}
+                                    {{> afQuickField name="profile.lastname"}}
+                                    {{> afQuickField name="profile.location" rows="6"}}
+                                    {{> afQuickField name="profile.bio" rows="6"}}
+                                    {{> afQuickField name="profile.website"}}
+                                    {{#unless autoSaveMode}}
+                                    <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Enviar</button>
+                                    </div>
+                                    {{/unless}}
+                                    {{/autoForm}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {{/unless}}
-        {{/autoForm}}
+            <!-- /main -->
+        </div>
+    </div>
+</div>
+{{>modal}}
+
 </template>

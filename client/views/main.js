@@ -1,4 +1,3 @@
-import { ReactiveVar } from 'meteor/reactive-var';
 import { Collection2 } from 'meteor/aldeed:collection2-core';
 import { AutoForm } from 'meteor/aldeed:autoform';
 

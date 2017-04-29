@@ -32,7 +32,7 @@ Template.story.events({
     }});
     console.log("introducido nuevo comentario");
    // Se crea un objeto Comentario, ya que no es posible más de un parámetro String
-    Meteor.call('addComment', comentario);*/
+    Meteor.call('addComment', comentario);
 
 
     $('[name="'+idStory+'comment"]').val("");
