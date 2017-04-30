@@ -1,3 +1,9 @@
+Template.editProfile.helpers({
+  editProfileFormSchema: function() {
+    return Schemas.User;
+  }
+});
+
 export const Schemas={};
 	Schemas.UserProfile = new SimpleSchema({
 	    firstName: {
