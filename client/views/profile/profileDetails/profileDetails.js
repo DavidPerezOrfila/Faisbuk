@@ -96,7 +96,7 @@ Template.profileDetails.onCreated(function() {
                 username: username
             });
             return user ? user.profile.location.street + " " +
-                user.profile.location.city + ", " + user.profile.location.state + " " + user.profile.location.zip : "";
+                user.profile.location.city + ", " + user.profile.location.state + " " + user.profile.location.postalcode : "";
         },
         storyCount: function() {
             var username = Router.current().params.username;
@@ -123,11 +123,7 @@ Template.profileDetails.onCreated(function() {
 
         usuarios: function() {
 
-
-
-            var usuarios = Meteor.users.find();
-
-
+            var usuarios = Meteor.users.find({});
 
             return usuarios;
         }

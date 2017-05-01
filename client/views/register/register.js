@@ -23,7 +23,7 @@ Template.register.events({
             Accounts.createUser({username: username,
                                  email: email,
                                   password: password,
-                                    profile: 
+                                    profile:
                                         {firstname: firstname,
                                          lastname: lastname,
                                          username: firstname + lastname,
@@ -31,12 +31,12 @@ Template.register.events({
                                              street : "",
                                             city : "",
                                              state : "",
-                                             zip : ""
+                                             postalcode : ""
                                                 },
                                             picture : {
-                                             "large" : "http://mundogeek.net/wp-content/avatar-mario.jpg",
-                                              "medium" : "http://mundogeek.net/wp-content/avatar-mario.jpg",
-                                            "thumbnail" : "http://mundogeek.net/wp-content/avatar-mario.jpg"
+                                             "large" : "http://payload.cargocollective.com/1/3/122148/1670411/6.jpg",
+                                              "medium" : "http://payload.cargocollective.com/1/3/122148/1670411/6.jpg",
+                                            "thumbnail" : "http://payload.cargocollective.com/1/3/122148/1670411/6.jpg"
                                         },
                                             pendingFriends:[],
                                             confirmedFriends:[]}},
