@@ -37,3 +37,7 @@ Template.topnav.helpers({
         }
     }
 })
+
+/*Template.search.helpers({
+index: () => index, // instanceof EasySearch.Index
+})*/

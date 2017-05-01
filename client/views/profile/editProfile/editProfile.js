@@ -1,76 +1,40 @@
 Template.editProfile.helpers({
-  editProfileFormSchema: function() {
-    return Schemas.User;
-  }
+    'editarPerfil': function() {
+        var currentUser = Meteor.user();
+        var profile = currentUser.profile;
+        return profile;
+    }
 });
 
-export const Schemas={};
-	Schemas.UserProfile = new SimpleSchema({
-	    firstName: {
-	        type: String,
-	        regEx: /^[a-zA-Z-]{2,25}$/,
-	        optional: true
-	    },
-	    lastName: {
-	        type: String,
-	        regEx: /^[a-zA-Z]{2,25}$/,
-	        optional: true
-	    },
-	    birthday: {
-	        type: Date,
-	        optional: true
-	    },
-	    website: {
-	        type: String,
-	        regEx: SimpleSchema.RegEx.Url,
-	        optional: true
-	    },
-	    bio: {
-	        type: String,
-	        optional: true
-	    }
-	});
 
-	Schemas.User = new SimpleSchema({
-	    username: {
-	        type: String,
-	        regEx: /^[a-z0-9A-Z_]{3,15}$/
-	    },
-	    emails: {
-	        type: [Object],
-	        optional: true
-	    },
-	    "emails.$.address": {
-	        type: String,
-	        regEx: SimpleSchema.RegEx.Email
-	    },
-	    "emails.$.verified": {
-	        type: Boolean
-	    },
-	    createdAt: {
-	        type: Date
-	    },
-	    profile: {
-	        type: Schemas.UserProfile,
-	        optional: true
-	    },
-	    services: {
-	        type: Object,
-	        optional: true,
-	        blackbox: true
-	    }
-	});
-	Meteor.users.attachSchema(Schemas.User);
+Template.editProfile.events({
+            'submit [name=editProfileForm]': function(event) {
+                    event.preventDefault();
+                    var self = this;
+                    var currentUser = Meteor.user();
+                    var userId = currentUser._id;
+
+                    var firstname = $('[name="firstname"]').val();
+                    var lastname = $('[name="lastname"]').val();
+                    var gender = $('[name="gender"]').val();
+                    var street = $('[name="street"]').val();
+                    var city = $('[name="city"]').val();
+                    var state = $('[name="state"]').val();
+                    var postalcode = $('[name="postalcode"]').val();
+
+                    Meteor.users.update({
+                        "_id": userId
+                    }, {
+                        $set: {
+                            "profile.firstname": firstname,
+                            "profile.lastname": lastname,
+                            "profile.gender": gender,
+                            "profile.location.street": street,
+                            "profile.location.city": city,
+                            "profile.location.state": state,
+                            "profile.location.postcode": postcode,
 
 
-	Meteor.users.allow({
-	    insert: function() {
-	        return true;
-	    },
-	    update: function() {
-	        return true;
-	    },
-	    remove: function() {
-	        return true;
-	    }
-	});
+                        }
+                    });
+}});

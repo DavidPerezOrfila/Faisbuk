@@ -1,9 +1,10 @@
-import { Collection2 } from 'meteor/aldeed:collection2-core';
+/*import { Collection2 } from 'meteor/aldeed:collection2-core';
 import { AutoForm } from 'meteor/aldeed:autoform';
 
 import SimpleSchema from 'simpl-schema';
+import { Tracker } from 'meteor/tracker';
 SimpleSchema.extendOptions(['autoform']);
-AutoForm.setDefaultTemplate('materialize');
+AutoForm.setDefaultTemplate('bootstrap4');
 SimpleSchema.debug = true;
 
 export const Schemas = {};
@@ -27,38 +28,32 @@ Schemas.UserProfile = new SimpleSchema({
 		type: Date,
 		optional: true
 	},
+	location:{
+		type: Array
+	},
     location: {
         type: Object
     },
-        'location.street': {
+        'location.$.street': {
     		type: String,
     		regEx: /^[a-zA-Z]{2,25}$/,
     		optional: true
     	},
-        'location.city': {
+        'location.$.city': {
     		type: String,
     		regEx: /^[a-zA-Z]{2,25}$/,
     		optional: true
     	},
-        'location.state': {
+        'location.$.state': {
     		type: String,
     		regEx: /^[a-zA-Z]{2,25}$/,
     		optional: true
     	},
-        'location.postcode': {
+        'location.$.postcode': {
     		type: String,
     		regEx: /^[a-zA-Z]{2,25}$/,
     		optional: true
-    },
-	website: {
-		type: String,
-		regEx: SimpleSchema.RegEx.Url,
-		optional: true
-	},
-	bio: {
-		type: String,
-		optional: true
-	}
+    }
 });
 
 Schemas.User = new SimpleSchema({
@@ -83,18 +78,17 @@ Schemas.User = new SimpleSchema({
 	profile: {
 		type: Schemas.UserProfile,
 		optional: true
-	},
-	services: {
-		type: Object,
-		optional: true,
-		blackbox: true
 	}
+
 });
 Meteor.users.attachSchema(Schemas.User);
+Meteor.publish(null, function () {
+  return users.find();
+});
 
 
 Meteor.users.allow({
 	  insert: function () { return true; },
 	  update: function () { return true; },
 	  remove: function () { return true; }
-});
+});*/

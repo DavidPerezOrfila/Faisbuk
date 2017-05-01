@@ -17,20 +17,27 @@
                                 {{>profileDetails}}
                                 <!-- main col right -->
                                 <div class="col-sm-7">
-                                    {{#autoForm id="editProfile" collection="Meteor.users"  doc=currentUser type="update" setArrayItems=true}}
-                                    {{> afQuickField name="username"}}
-                                    {{> afQuickField name="profile.firstname"}}
-                                    {{> afQuickField name="profile.lastname"}}
-                                    {{> afQuickField name="profile.location" rows="6"}}
-                                    {{> afQuickField name="profile.bio" rows="6"}}
-                                    {{> afQuickField name="profile.website"}}
-                                    {{#unless autoSaveMode}}
+                                    <form name="editProfileForm">
+                                    <label class="label label-warning">Nombre: </label>
+                                    <input class="editProfileForm" name="firstname" type="text" value={{editarPerfil.firstname}}>
+                                    <label class="label label-warning">Apellidos: </label>
+                                    <input class="editProfileForm" name="lastname" type="text" value={{editarPerfil.lastname}}>
+                                    <label class="label label-warning">Género: </label>
+                                    <input class="editProfileForm" name="gender" type="text" value={{editarPerfil.gender}}>
+                                    <label class="label label-warning">Calle: </label>
+                                    <input class="editProfileForm" name="street" type="text" value={{editarPerfil.location.street}}>
+                                    <label class="label label-warning">Ciudad: </label>
+                                    <input class="editProfileForm" name="city" type="text" value={{editarPerfil.location.city}}>
+                                    <label class="label label-warning">Provincia: </label>
+                                    <input class="editProfileForm" name="state" type="text" value={{editarPerfil.location.state}}>
+                                    <label class="label label-warning">Código Postal: </label>
+                                    <input class="editProfileForm" name="postcode" type="text" value={{editarPerfil.location.postcode}}>
+
                                     <div class="form-group">
                                             <button type="submit" class="btn btn-primary">Enviar</button>
                                             <button type="reset" class="btn btn-default">Reset Form</button>
                                     </div>
-                                    {{/unless}}
-                                    {{/autoForm}}
+                                </form>
                                 </div>
                             </div>
                         </div>

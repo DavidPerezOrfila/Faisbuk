@@ -26,12 +26,13 @@ Meteor.startup(function() {
                     password:"123456",
                     profile: fields
 
-                }                
+                }
                 delete fields.name.first;
                 delete fields.name.last;
                 delete fields.login.username;
                 Accounts.createUser(user);
                 console.log(fields);
+                GoogleMaps.load();
             })
         }
     }
