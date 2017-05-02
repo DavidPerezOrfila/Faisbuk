@@ -1,3 +1,4 @@
+
 Template.editProfile.helpers({
     'editarPerfil': function() {
         var currentUser = Meteor.user();

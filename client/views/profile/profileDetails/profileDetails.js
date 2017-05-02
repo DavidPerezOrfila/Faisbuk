@@ -30,7 +30,18 @@ Template.profileDetails.onCreated(function() {
     }),
 
 
-
+    /**
+     * @isMethod true
+     * @memberOf Method
+     * @function helpers
+     * @summary Diferentes funciones creadas como helpers para mostrar en el
+     * Template detalles del usuario logueado.
+     * También comprobamos si el ususario logueado es el propietario del
+     * perfil y si nos devuelve true, se cambia el botón de añadir amigo por
+     * el de editar perfil
+     * @locus profileDetails
+     * @param {Object} [username] nombre del usuario creado.
+     */
     Template.profileDetails.helpers({
         fullname: function() {
             var username = Router.current().params.username;
