@@ -2,7 +2,6 @@
 Para poder añadir automáticamente los usuarios se necesita tener instalado
 un paquete de Meteor, ejecutando la siguiente orden: meteor add http
 */
-
 Meteor.startup(function() {
     var users = Meteor.users.find().count();
     if(!users) {
@@ -32,7 +31,7 @@ Meteor.startup(function() {
                 delete fields.login.username;
                 Accounts.createUser(user);
                 console.log(fields);
-                GoogleMaps.load();
+              
             })
         }
     }

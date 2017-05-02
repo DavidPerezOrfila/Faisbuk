@@ -31,9 +31,8 @@ Template.profileDetails.onCreated(function() {
 
 
     /**
-     * @isMethod true
-     * @memberOf Method
-     * @function helpers
+     * @isHelper true
+     * @memberOf Helpers
      * @summary Diferentes funciones creadas como helpers para mostrar en el
      * Template detalles del usuario logueado.
      * También comprobamos si el ususario logueado es el propietario del
