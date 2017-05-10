@@ -4,7 +4,7 @@ if (Meteor.isClient) {
   Meteor.startup(function() {
     GoogleMaps.load();
   });
-  Template.modalMap.onCreated(function() {
+  Template.gMaps.onCreated(function() {
       var self = this;
 
       GoogleMaps.ready('map', function(map) {
@@ -35,7 +35,7 @@ if (Meteor.isClient) {
       });
     });
 
-    Template.modalMap.helpers({
+    Template.gMaps.helpers({
       geolocationError: function() {
         var error = Geolocation.error();
         return error && error.message;
